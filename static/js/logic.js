@@ -87,19 +87,27 @@ let sanFranAirport = {
 // 		 .bindPopup("<h2>" + feature.properties.city + "</h2>");
 // 	 }
 //  }).addTo(map);
-// 
+//
 L.geoJSON(sanFranAirport, {
-	onEachFeature: function(feature, layer) {
-	  layer.bindPopup("<h4>" + feature.properties.city + "</h4>"+"<hr>"+"<h6>faa code</h6>"+feature.properties.faa);
-	 }
-    }).addTo(map);
+  onEachFeature: function (feature, layer) {
+    layer.bindPopup(
+      "<h4>" +
+        feature.properties.city +
+        "</h4>" +
+        "<hr>" +
+        "<h6>faa code</h6>" +
+        feature.properties.faa
+    );
+  },
+}).addTo(map);
 
 //     link to airport data
-let airportData = "https://raw.githubusercontent.com/DennisPSmith5676/Earthquake_Challenge/Mapping_Earthquakes/main/static/data/majorAirports.json";
+let airportData =
+  "https://raw.githubusercontent.com/DennisPSmith5676/Earthquake_Challenge/main/static/data/majorAirports.json";
 
 // Grabbing our GeoJSON data.
-d3.json(airportData).then(function(data) {
-    console.log(data);
+d3.json(airportData).then(function (data) {
+  console.log(data);
   // Creating a GeoJSON layer with the retrieved data.
   L.geoJSON(data).addTo(map);
 });
