@@ -47,15 +47,15 @@ let dark = L.tileLayer(
 // Create a base layer that holds both maps.
 let baseMaps = {
   Street: streets,
-  Dark: dark,
   satellite: satelliteStreets,
+  Dark: dark,
 };
 
 // Create the map object with center, zoom level and default layer.
 let map = L.map("mapid", {
   center: [30, 30],
   zoom: 2,
-  layers: [streets],
+  layers: [streets, earthquakes, majorEarthquakes],
 });
 // Pass our map layers into our layers control and add the layers control to the map.
 L.control.layers(baseMaps).addTo(map);

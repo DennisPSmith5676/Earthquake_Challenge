@@ -47,8 +47,8 @@ let dark = L.tileLayer(
 // Create a base layer that holds both maps.
 let baseMaps = {
   Street: streets,
-  satellite: satelliteStreets,
   Dark: dark,
+  satellite: satelliteStreets,
 };
 // Create the earthquake layer for our map.
 let earthquakes = new L.layerGroup();
@@ -63,7 +63,7 @@ let majorEarthquakes = new L.LayerGroup();
 let map = L.map("mapid", {
   center: [30, 30],
   zoom: 2,
-  layers: [streets, earthquakes, majorEarthquakes],
+  layers: [streets, earthquakes],
 });
 
 // We define an object that contains the overlays.
